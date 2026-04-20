@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction Workspace</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <aside class="sidebar">
+        <div class="brand">Operon</div>
+        <nav>
+          <a class="nav-item" href="#">Dashboard</a>
+          <a class="nav-item active" href="#">Assigned Tasks</a>
+          <a class="nav-item" href="#">Transactions</a>
+          <a class="nav-item" href="#">Settings</a>
+        </nav>
+        <div class="user-card">
+          <div>
+            <strong id="user-name">Vikram Seth</strong>
+            <p>Operations User</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <input id="searchInput" type="search" placeholder="Search transactions, IDs, Categories..." />
+          <div class="status-bar">
+            <strong>Status</strong>
+            <span>• Last updated: <span id="lastUpdatedText">Just now</span></span>
+          </div>
+        </header>
+
+        <section class="page">
+          <button id="backButton" class="link-btn">← Back to Assigned Tasks</button>
+
+          <article class="hero card">
+            <div>
+              <h1 id="transactionId">TXN-2026-0842</h1>
+              <p id="transactionTitle">Large payment verification required</p>
+            </div>
+            <div class="badges">
+              <span id="statusBadge" class="badge muted">Pending</span>
+              <span id="priorityBadge" class="badge warning">High</span>
+            </div>
+            <div class="sla-strip">
+              <div>
+                <h3>SLA Status</h3>
+                <p>Target resolution time</p>
+              </div>
+              <span id="slaTime" class="badge warning">• 2h 15m</span>
+            </div>
+          </article>
+
+          <div class="grid two-col">
+            <article class="card">
+              <h2>Transaction Information</h2>
+              <div class="info-grid" id="transactionInfo"></div>
+            </article>
+
+            <article class="card">
+              <h2>Actions</h2>
+              <div class="actions">
+                <button id="markCompleteBtn" class="btn primary">✓ Mark Complete</button>
+                <button id="referBtn" class="btn secondary">➤ Refer to Specialist</button>
+                <button id="commentBtn" class="btn ghost">Add Comment</button>
+                <button id="requestInfoBtn" class="btn ghost">Request Info</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="grid two-col">
+            <article class="card">
+              <h2>Status History</h2>
+              <ul id="historyList" class="timeline"></ul>
+            </article>
+
+            <article class="card">
+              <h2>Additional Info</h2>
+              <dl id="additionalInfo" class="details-list"></dl>
+            </article>
+          </div>
+
+          <article class="card">
+            <h2>Supporting Documents</h2>
+            <ul id="docsList" class="docs-list"></ul>
+          </article>
+
+          <article class="card" id="commentSection">
+            <h2>Comments</h2>
+            <ul id="commentList" class="comment-list"></ul>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="modal" class="modal">
+      <form method="dialog" id="modalForm">
+        <h3 id="modalTitle">Action</h3>
+        <p id="modalSubtitle"></p>
+        <div id="modalFields"></div>
+        <menu>
+          <button value="cancel" class="btn ghost">Cancel</button>
+          <button value="default" id="modalConfirmBtn" class="btn primary">Confirm</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <template id="timelineItemTemplate">
+      <li class="timeline-item">
+        <div>
+          <strong class="status"></strong>
+          <p class="desc"></p>
+          <small class="actor"></small>
+        </div>
+        <time class="timestamp"></time>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
