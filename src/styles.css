@@ -1,0 +1,99 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #121212;
+  background: #f7f9fc;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+.container { width: min(1100px, 92vw); margin: 0 auto; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+.navbar nav { display: flex; gap: 1rem; }
+.navbar a { color: inherit; text-decoration: none; }
+.brand { font-weight: 700; }
+
+.hero {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1.2fr 1fr;
+  padding: 4rem 0;
+  align-items: center;
+}
+.hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin: .3rem 0; }
+.subtitle { color: #4b5563; max-width: 50ch; }
+.eyebrow { color: #3b82f6; font-weight: 600; }
+.hero-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  color: #6b7280;
+}
+.hero-actions { display: flex; gap: .8rem; margin-top: 1rem; }
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+.feature-card {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  padding: 1.2rem;
+}
+
+.cta {
+  text-align: center;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.cta-form {
+  display: flex;
+  gap: .6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+input {
+  min-width: 280px;
+  padding: .75rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+.btn {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #111827;
+}
+.success { color: #16a34a; }
+.footer { padding: 1rem 0 2rem; color: #6b7280; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .features { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .navbar nav { display: none; }
+  .features { grid-template-columns: 1fr; }
+}
